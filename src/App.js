@@ -16,11 +16,11 @@ function App() {
               <Home />
             </Route>
 
-            <Route exact path="/upload">
+            <Route path="/upload">
               <Upload />
             </Route>
 
-            <Route exact path="/loading">
+            <Route path="/loading">
               <Loading />
             </Route>
 
