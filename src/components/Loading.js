@@ -12,7 +12,7 @@ export default function Loading() {
   return (
     <div>
       <div hidden={change} className="loading">
-        분석중
+        <h1>분석 중</h1>
         <img className="img loading" src="/images/load.gif" alt="loading.." />
       </div>
       <div hidden={!change}>

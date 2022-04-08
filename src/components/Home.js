@@ -15,9 +15,11 @@ export default function Home() {
         versions of Lorem Ipsum.
       </div>
       <div className="button">
-        <Link to="/upload" className="text-link">
-          분석하러 가기!
-        </Link>
+        <div>
+          <Link to="/upload" className="text-link">
+            분석하러 가기!
+          </Link>
+        </div>
       </div>
     </div>
   );
