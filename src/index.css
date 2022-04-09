@@ -44,6 +44,7 @@ body {
   border-radius: 43px;
   background: #8fa5e5;
   box-shadow: 5px 5px 10px #6e7fb0, -5px -5px 10px #b0cbff;
+  text-align: center;
 }
 
 .output {

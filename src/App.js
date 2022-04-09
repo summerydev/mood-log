@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Loading from "./components/Loading";
 import Output from "./components/Output";
+import Loading from "./components/Loading";
 import Upload from "./components/Upload";
 
 function App() {
