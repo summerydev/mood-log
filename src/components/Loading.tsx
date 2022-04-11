@@ -17,9 +17,11 @@ export default function Loading() {
       </div>
       <div hidden={!change}>
         <img className="img" src="/images/chart.gif" alt="complete" />
-        <Link className="button text-link"  to="/output">
-          결과보러가기!
-        </Link>
+        <div className="button">
+          <Link className="text-link" to="/output">
+            결과보러가기!
+          </Link>
+        </div>
       </div>
     </div>
   );
