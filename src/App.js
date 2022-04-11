@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import Output from "./components/Output";
 import Loading from "./components/Loading";
 import Upload from "./components/Upload";
+import EmptyPage from "./components/EmptyPage";
+import Share from "./components/Share";
 
 function App() {
   return (
@@ -26,6 +28,11 @@ function App() {
 
             <Route path="/output">
               <Output />
+              <Share />
+            </Route>
+
+            <Route>
+              <EmptyPage />
             </Route>
           </Switch>
         </div>
