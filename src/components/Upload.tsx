@@ -5,9 +5,11 @@ export default function Upload() {
     <div className="upload">
       <span>사진 업로드</span>
       <input placeholder="url"></input>
-      <Link to="/loading" className="button text-link">
-        ai에게 분석맡기기
-      </Link>
+      <div className="button">
+        <Link to="/loading" className="text-link">
+          ai에게 분석맡기기
+        </Link>
+      </div>
     </div>
   );
 }
