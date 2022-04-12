@@ -49,3 +49,8 @@ body {
 
 .output {
 }
+
+.output-img{
+  width: 500px;
+  object-fit:cover
+}
