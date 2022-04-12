@@ -10,6 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+      <img className="bg-img" src="https://media.giphy.com/media/n3xSURtNE62t2/giphy.gif"/>
         <Header />
         <div className="card">
           <Switch>
