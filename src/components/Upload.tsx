@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
 
 export default function Upload() {
   const url: string = "http://localhost:3001/data";
