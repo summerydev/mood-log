@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Social from "./Social";
 
 export default function Home() {
   return (
@@ -15,43 +16,7 @@ export default function Home() {
         alt="ai HADOALOOK"
       />
       <div className="text">현재 -명이 참여했어요</div>
-      <div className="link-icon">
-        <a href="#">
-          <img
-            className="link-icon.instagram"
-            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-            alt="instagram"
-          />
-        </a>
-        <a href="#">
-          <img
-            className="link-icon.twitter"
-            src="https://cdn-icons.flaticon.com/png/512/3256/premium/3256013.png?token=exp=1649818521~hmac=ddbd8de20083f59043ac82438990bcec"
-            alt="twitter"
-          />
-        </a>
-        <a href="#">
-          <img
-            className="link-icon.facebook"
-            src="https://cdn-icons-png.flaticon.com/512/2111/2111398.png"
-            alt="facebook"
-          />
-        </a>
-        <a href="#">
-          <img
-            className="link-icon.kakao"
-            src="https://cdn-icons.flaticon.com/png/512/3991/premium/3991999.png?token=exp=1649818546~hmac=b5f363bdb1207b005db3ce72f19a9e30"
-            alt="kakao"
-          />
-        </a>
-        <a href="#">
-          <img
-            className="link-icon.link"
-            src="https://cdn-icons.flaticon.com/png/512/5873/premium/5873833.png?token=exp=1649822296~hmac=32b9c72d1f621ecd5da635607f1132e5"
-            alt="share link"
-          />
-        </a>
-      </div>
+      <Social />
 
       <div className="button">
         <Link to="/upload" className="text-link">

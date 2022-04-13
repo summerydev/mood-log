@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import Social from "./Social";
 
 export default function Output() {
   const url: string = "http://localhost:3001/data";
@@ -17,7 +18,7 @@ export default function Output() {
           </p>
         </div>
       ))}
-
+      <Social />
       <div className="button">
         <Link to="/" className="text-link">
           다시 테스트하기
