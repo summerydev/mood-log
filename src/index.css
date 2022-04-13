@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: stretch
+  align-items: stretch;
 }
 
 .header {
@@ -36,11 +36,11 @@ body {
   background: #ffffff;
   box-shadow: 9px 9px 18px #c4c4c4, -9px -9px 18px #ffffff;
   max-width: 1000px;
-  min-width: 600px;
+  min-width: 360px;
   flex-wrap: wrap;
 }
 
-.home title, text{
+.home title, text {
   margin: 20px;
 }
 
@@ -57,12 +57,13 @@ body {
 
 .button {
   width: fit-content;
-  margin: 10px;
   padding: 5px 10px 5px 10px;
   border-radius: 43px;
   background: #8fa5e5;
   box-shadow: 5px 5px 10px #6e7fb0, -5px -5px 10px #b0cbff;
   text-align: center;
+  height: 1%;
+  margin: 5% auto;
 }
 
 .output {

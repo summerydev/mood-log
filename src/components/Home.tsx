@@ -5,8 +5,7 @@ export default function Home() {
     <div className="home">
       <div className="title">How Do I Look?</div>
       <div className="text">
-        ai 하두알룩에게 <br></br>
-        당신의 데일리룩 무드분석을 요청해보세요!
+        ai 하두알룩에게,<br />당신의 데일리룩 무드분석을 요청해보세요!
       </div>
       <img src="https://cdn-icons-png.flaticon.com/512/6604/6604268.png"></img>
       <div className="text">현재 -명이 참여했어요</div>
