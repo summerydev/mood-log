@@ -11,11 +11,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch
 }
 
-.bg-img {
-  margin: 0px;
-  display: flex;
+.header {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+  margin: 20px;
+}
+
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .card {
@@ -24,22 +35,24 @@ body {
   border-radius: 15px;
   background: #ffffff;
   box-shadow: 9px 9px 18px #c4c4c4, -9px -9px 18px #ffffff;
+  max-width: 1000px;
+  min-width: 600px;
+  flex-wrap: wrap;
 }
 
-.text-link {
-  color: inherit;
-  text-decoration: inherit;
+.home title, text{
+  margin: 20px;
 }
 
-.header {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--font-color);
+.home .title {
+  font-size: 2em;
+  font-weight: 500;
 }
 
-.home {
-  display: block;
-  justify-content: center;
+.home > img {
+  width: 200px;
+  animation: rotate_image 8s linear infinite;
+  transform-origin: 50% 50%;
 }
 
 .button {
@@ -58,4 +71,10 @@ body {
 .output-img {
   width: 500px;
   object-fit: cover;
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(360deg);
+  }
 }
