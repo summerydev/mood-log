@@ -36,25 +36,49 @@ body {
   background: #ffffff;
   box-shadow: 9px 9px 18px #c4c4c4, -9px -9px 18px #ffffff;
   max-width: 1000px;
-  min-width: 360px;
+  min-width: 280px;
   flex-wrap: wrap;
-}
-
-.home title, text {
-  margin: 20px;
 }
 
 .home .title {
   font-size: 2em;
   font-weight: 500;
+  margin: 10px;
 }
 
-.home > img {
-  width: 200px;
+.home > .ai-img {
+  width: 150px;
   animation: rotate_image 8s linear infinite;
   transform-origin: 50% 50%;
+  padding: 15px;
+}
+.link-icon {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 10px;
+  padding-top: 50px;
 }
 
+.link-icon.twitter {
+  background-repeat: no-repeat;
+}
+.link-icon.facebook {
+  background-repeat: no-repeat;
+}
+.link-icon.kakao {
+  background-repeat: no-repeat;
+}
+.link-icon.link {
+  background-repeat: no-repeat;
+}
+.link-icon img {
+  width: 30px;
+  height: 30px;
+}
 .button {
   width: fit-content;
   padding: 5px 10px 5px 10px;
