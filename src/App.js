@@ -5,6 +5,7 @@ import Output from "./components/Output";
 import Loading from "./components/Loading";
 import Upload from "./components/Upload";
 import EmptyPage from "./components/EmptyPage";
+import Test from "./components/Test";
 
 function App() {
   return (
@@ -28,7 +29,9 @@ function App() {
             <Route path="/output">
               <Output />
             </Route>
-
+            <Route path="/test">
+              <Test />
+            </Route>
             <Route>
               <EmptyPage />
             </Route>

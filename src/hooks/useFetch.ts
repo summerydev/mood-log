@@ -6,6 +6,7 @@ export default function useFetch(url: string) {
   useEffect(() => {
     fetch(url)
       .then(res => {
+        console.log(res);
         return res.json();
       })
       .then(data => {

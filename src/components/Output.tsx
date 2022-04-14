@@ -3,10 +3,15 @@ import useFetch from "../hooks/useFetch";
 import Social from "./Social";
 
 export default function Output() {
-  const url: string = "http://localhost:3001/data";
+  const url: string = "http://16a1-121-66-139-243.ngrok.io/api/users";
   const data = useFetch(url);
+  const test = useFetch(url);
   return (
     <div className="output">
+      {test.map((test) => (
+        <div key={test.id}>{test.name}</div>
+      ))}
+
       <h1>결과</h1>
       {data.map((data) => (
         <div key={data.id}>
