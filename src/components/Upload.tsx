@@ -43,7 +43,6 @@ export default function Upload() {
         <input id="image" type="file" name="image" onChange={onLoadFile} />
         <div>
           <button type="submit" className="button">
-          ai하두알룩에게 사진 보내기🤖
             <Link to="/output" className="text-link">
               ai하두알룩에게 사진 보내기🤖
             </Link>
