@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Upload() {
   const [files, setFiles] = useState();
@@ -36,15 +37,11 @@ export default function Upload() {
         <br />
         전신사진일 수록 정확도가 높아진답니다.
       </h3>
-      <form
-        action="/output"
-        onSubmit={handleSubmit}
-        encType="multipart/form-data"
-      >
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input id="image" type="file" name="image" onChange={onLoadFile} />
         <div>
           <button type="submit" className="button">
-            ai하두알룩에게 사진 보내기🤖
+            <Link to="/output" className="text-link">ai하두알룩에게 사진 보내기🤖</Link>
           </button>
         </div>
       </form>
