@@ -5,7 +5,9 @@ export default function Upload() {
   const [files, setFiles] = useState();
   const [text, setText] = useState("");
 
-  const url: string = "http://16a1-121-66-139-243.ngrok.io/motd/hello5";
+  const url: string = "https://75da-121-66-139-243.ngrok.io/motd";
+  const now = Date.now();
+  const date = new Date();
 
   const onLoadFile = (e: any) => {
     const file = e.target.files[0];
@@ -21,7 +23,7 @@ export default function Upload() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: files,
+        id: now,
         image: files,
         text: text,
       }),
@@ -41,7 +43,10 @@ export default function Upload() {
         <input id="image" type="file" name="image" onChange={onLoadFile} />
         <div>
           <button type="submit" className="button">
-            <Link to="/output" className="text-link">ai하두알룩에게 사진 보내기🤖</Link>
+          ai하두알룩에게 사진 보내기🤖
+            <Link to="/output" className="text-link">
+              ai하두알룩에게 사진 보내기🤖
+            </Link>
           </button>
         </div>
       </form>
