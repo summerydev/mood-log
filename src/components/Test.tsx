@@ -2,7 +2,7 @@ import { useState } from "react";
 import useFetch from "../hooks/useFetch";
 
 export default function Test() {
-  const url = "http://16a1-121-66-139-243.ngrok.io/motd/hello5";
+  const url = "https://75da-121-66-139-243.ngrok.io/motd";
   const [data, setData] = useState("");
 
   const handleSubmit = (e: any) => {
