@@ -3,24 +3,26 @@ import useFetch from "../hooks/useFetch";
 import Social from "./Social";
 
 export default function Output() {
-  const url: string = "http://16a1-121-66-139-243.ngrok.io/motd/hello5";
+  const url: string = "http://localhost:3001/data";
   const data = useFetch(url);
-  const test = useFetch(url);
+  //const test = useFetch(url);
+  //{test.map((test) => (
+  //<div key={test.id}>{test.id}</div>
+  //))}
   return (
     <div className="output">
-      {test.map((test) => (
-        <div key={test.id}>{test.id}</div>
-      ))}
-
       <h1>결과</h1>
       {data.map((data) => (
         <div key={data.id}>
           <img className="output-img" src={data.image} />
+          <p>오늘 당신의 무드는 </p>
+          <p>🕶 우주 최강 힙스터 무드 🕶</p>
           <p>
             {data.hip[0]}
             {data.hip[1]}%, {data.casual[0]}
             {data.casual[1]}%
           </p>
+          설명~~
         </div>
       ))}
       <Social />

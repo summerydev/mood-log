@@ -1,6 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
+import KakaoShareButton from "./KakaoShareButton";
 
 export default function Social() {
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+    script.async = true
+
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
   return (
     <div className="link-icon">
       <a href="#">
@@ -38,6 +50,9 @@ export default function Social() {
           alt="share link"
         />
       </a>
+      <div className="layout">
+        <KakaoShareButton />
+      </div>
     </div>
   );
 }

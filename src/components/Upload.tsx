@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Upload() {
   const [files, setFiles] = useState();
   const [text, setText] = useState("");
 
-  const url: string = "http://16a1-121-66-139-243.ngrok.io/test";
+  const url: string = "http://16a1-121-66-139-243.ngrok.io/motd/hello5";
 
   const onLoadFile = (e: any) => {
     const file = e.target.files[0];
@@ -36,15 +37,8 @@ export default function Upload() {
         <br />
         전신사진일 수록 정확도가 높아진답니다.
       </h3>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form action="/output" onSubmit={handleSubmit} encType="multipart/form-data">
         <input id="image" type="file" name="image" onChange={onLoadFile} />
-        <input
-          id="text"
-          type="text"
-          value={text}
-          name="text"
-          onChange={(e) => setText(e.target.value)}
-        />
         <div>
           <button type="submit" className="button">
             ai하두알룩에게 사진 보내기🤖
