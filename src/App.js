@@ -14,27 +14,12 @@ function App() {
         <Header />
         <div className="card">
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route path="/upload">
-              <Upload />
-            </Route>
-
-            <Route path="/loading">
-              <Loading />
-            </Route>
-
-            <Route path="/output">
-              <Output />
-            </Route>
-            <Route path="/test">
-              <Test />
-            </Route>
-            <Route>
-              <EmptyPage />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route path="/upload" component={Upload} />
+            <Route path="/loading" component={Loading} />
+            <Route path="/output" component={Output} />
+            <Route path="/test" component={Test} />
+            <Route component={EmptyPage} />
           </Switch>
         </div>
       </div>

@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 export default function Upload() {
   const [files, setFiles] = useState();
-  const [text, setText] = useState("");
-
-  const url: string = "https://75da-121-66-139-243.ngrok.io/motd";
+  //const navigate = useNavigate();
+  const url: string = "http://75da-121-66-139-243.ngrok.io/upload_page";
   const now = Date.now();
-  const date = new Date();
 
   const onLoadFile = (e: any) => {
     const file = e.target.files[0];
@@ -16,6 +15,7 @@ export default function Upload() {
   };
 
   const handleSubmit = (e: any) => {
+    e.preventDefault();
     console.log(e.target);
     fetch(url, {
       method: "POST",
@@ -25,9 +25,9 @@ export default function Upload() {
       body: JSON.stringify({
         id: now,
         image: files,
-        text: text,
       }),
     });
+    //navigate(`/output`);
   };
 
   return (
@@ -43,12 +43,11 @@ export default function Upload() {
         <input id="image" type="file" name="image" onChange={onLoadFile} />
         <div>
           <button type="submit" className="button">
-            <Link to="/output" className="text-link">
-              ai하두알룩에게 사진 보내기🤖
-            </Link>
+            ai하두알룩에게 사진 보내기🤖
           </button>
         </div>
       </form>
     </div>
   );
 }
+//<Link to="/output" className="text-link"></Link>
