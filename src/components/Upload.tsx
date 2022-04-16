@@ -3,33 +3,35 @@ import { useState } from "react";
 //import { useNavigate } from "react-router-dom"; //err
 
 export default function Upload() {
-  const [files, setFiles] = useState();
   //const navigate = useNavigate();
-  const url: string = "http://75da-121-66-139-243.ngrok.io/upload_page";
+  const url: string = "http://2cdd-222-119-93-18.ngrok.io/upload_page";
   const now = Date.now();
+  const [file, setFile] = useState("");
 
-  // const onLoadFile = (e: any) => {
-  //   const file = e.target.files[0];
-  //   console.log(file);
-  //   setFiles(file);
-  // };
+  const onLoadFile = (e: any) => {
+    const file = e.target.files[0];
+    //console.log(file);
+    setFile(file);
+    console.log(file);
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(files);
-    const file = e.target.file.file;
+    // const file = e.target.file.file;
+    console.log(file);
+
     let formData = new FormData();
     formData.append("files", file);
+
     const dataSet = {
       id: now,
     };
-
     formData.append("data", JSON.stringify(dataSet));
 
     fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
       body: formData,
     });
@@ -46,8 +48,8 @@ export default function Upload() {
         <br />
         전신사진일 수록 정확도가 높아진답니다.
       </h3>
-      <form onSubmit={handleSubmit}>
-        <input id="file" type="file" name="file" />
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <input id="file" type="file" name="file" onChange={onLoadFile} />
         <div>
           <button type="submit" className="button">
             ai하두알룩에게 사진 보내기🤖
