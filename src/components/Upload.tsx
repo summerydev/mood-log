@@ -24,7 +24,7 @@ export default function Upload() {
     formData.append("files", file);
 
     const dataSet = {
-      id: now,
+      "id": now,
     };
     formData.append("data", JSON.stringify(dataSet));
 
@@ -36,7 +36,7 @@ export default function Upload() {
       body: formData,
     });
     //navigate(`/output`);
-    // submit 시 /output으로 넘어가야함, id: now가 url의 파라미터로 넘어가도록
+    // submit 시 /output으로 넘어가야함, id: now가 url의 파라미터로 넘어가도록?
   };
 
   return (
