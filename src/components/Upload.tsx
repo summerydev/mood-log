@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { forEachChild } from "typescript";
+// import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom"; //err
 
 export default function Upload() {
@@ -35,7 +34,7 @@ export default function Upload() {
       body: formData,
     });
     //navigate(`/output`);
-    // submit 시 /output으로 넘어가야함
+    // submit 시 /output으로 넘어가야함, id: now가 url의 파라미터로 넘어가도록
   };
 
   return (
