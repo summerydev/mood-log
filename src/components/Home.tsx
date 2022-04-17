@@ -4,16 +4,18 @@ import Social from "./Social";
 export default function Home() {
   return (
     <div className="home">
-      <h1>How Do I Look?</h1>
+      <Link to="/" className="header text-link">
+        MOOD LOG✨
+      </Link>
       <h3>
-        ai 하두알룩에게,
+        ai에게,
         <br />
         당신의 데일리룩 무드분석을 요청해보세요!
       </h3>
       <img
         className="ai-img"
         src="https://cdn-icons-png.flaticon.com/512/6604/6604268.png"
-        alt="ai HADOALOOK"
+        alt="ai"
       />
       <div className="text">현재 -명이 참여했어요</div>
       <Social />
