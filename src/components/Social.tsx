@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import KakaoShareButton from "./share/KakaoShareButton";
-import LinkShare from "./share/LinkShare";
+import KakaoShareButton from "../components/KakaoShareButton";
+import LinkShare from "../components/LinkShare";
 
 export default function Social() {
   useEffect(() => {

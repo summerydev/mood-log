@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-import Social from "./Social";
+import Social from "../components/Social";
 
 export default function Output() {
   const url: string = "http://localhost:3001/data";
