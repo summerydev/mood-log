@@ -48,12 +48,15 @@ mbti, 심리테스트 등 공유 놀이 문화를 반영, 1회성 테스트 특�
 - 🌱(차트 사용)
 
 ## 파일별 기능
-src/components
+📁 src/pages
 - `Home` : 메인페이지
 - `Upload` : 사진 업로드 페이지
 - `Output` : 분석 결과 페이지
-- `Social` : 소셜 미디어 공유 (./share : `Facebook`, `KaKaoShareButton`, `Twitter`, `LinkShare`)
 
+📁 src/components
+- `Social` : 소셜 미디어 공유 기능
+    - `KaKaoShareButton`: 카카오톡 공유 api
+    - `LinkShare` : 배포 페이지 링크
 ---
 
 # 2️⃣ 구현
