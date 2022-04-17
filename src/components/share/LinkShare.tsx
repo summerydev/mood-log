@@ -3,7 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default class Share extends Component {
   state = {
-    copyUrl: "https://mood-log.netlify.app/",
+    copyUrl: "",
     copied: false,
   };
   closeCopied = () => {
