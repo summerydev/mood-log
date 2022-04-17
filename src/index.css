@@ -64,24 +64,13 @@ body {
   padding-top: 50px;
 }
 
-.link-icon.twitter {
-  background-repeat: no-repeat;
-}
-.link-icon.facebook {
-  background-repeat: no-repeat;
-}
-.link-icon.kakao {
-  background-repeat: no-repeat;
-}
-.link-icon.link {
-  background-repeat: no-repeat;
-}
 .link-icon img {
   width: 30px;
   height: 30px;
 }
 
 .share-btn {
+  background-repeat: no-repeat;
   background-color: inherit;
   border: 0;
   outline: 0;

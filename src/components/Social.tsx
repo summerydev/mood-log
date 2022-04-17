@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-import Facebook from "./share/Facebook";
+import { useEffect } from "react";
 import KakaoShareButton from "./share/KakaoShareButton";
-import Twitter from "./share/Twitter";
 import LinkShare from "./share/LinkShare";
 
 export default function Social() {
@@ -17,24 +15,39 @@ export default function Social() {
     };
   }, []);
 
+  const onClickFacebook = () => {
+    window.open(
+      "https://www.facebook.com/sharer/sharer.php?u=https://mood-log.netlify.app/"
+    );
+  };
+
+  const onClickTwitter = () => {
+    window.open(
+      "https://www.twitter.com/intent/tweet?&url=https://mood-log.netlify.app/"
+    );
+  };
+
   return (
     <div className="link-icon">
       {/*<a href="#">
         <img
-          className="link-icon.instagram"
           src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
           alt="instagram"
         />
   </a>*/}
-      <div className="link-icon.twitter">
-        <Twitter />
-      </div>
-      <div className="link-icon.facebook">
-        <Facebook />
-      </div>
+
+      <button onClick={onClickTwitter} className="share-btn">
+        <img src="images/twitter.png" alt="twitter" />
+      </button>
+
+      <button onClick={onClickFacebook} className="share-btn">
+        <img src="images/facebook.png" alt="facebook" />
+      </button>
+
       <div className="link-icon.kakao">
         <KakaoShareButton />
       </div>
+
       <div className="link-icon.link">
         <LinkShare />
       </div>
