@@ -1,10 +1,12 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import Output from "./components/Output";
-import Upload from "./components/Upload";
-import EmptyPage from "./components/EmptyPage";
+import Home from "./pages/Home";
+import Output from "./pages/Output";
+import Upload from "./pages/Upload";
+import EmptyPage from "./pages/EmptyPage";
+import firebaseInit from "./firebaseInit";
 
 function App() {
+  console.log(firebaseInit);
   return (
     <BrowserRouter>
       <div className="App">
