@@ -49,24 +49,30 @@ const Upload = ({ match }: any) => {
         })
         .catch(function (error: any) {
           setLoading(false);
-          alert("에러가 발생했어요😥 페이지 새로고침 후 이용해주세요");
           if (error.response) {
             // 요청이 이루어졌으며 서버가 2xx의 범위를 벗어나는 상태 코드로 응답
+            alert("서버에 문제가 생겼어요😥 페이지 새로고침 후 이용해주세요");
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
           } else if (error.request) {
             // 요청이 이루어 졌으나 응답을 받지 못함
+            alert("응답할 수 없어요😥 페이지 새로고침 후 이용해주세요");
             console.log(error.request);
           } else {
             // 오류를 발생시킨 요청을 설정하는 중에 문제가 발생했습니다.
+            alert(
+              "요청 설정 중에 문제가 발생했어요😥 페이지 새로고침 후 이용해주세요. 문제가 지속될 시 관리자에게 문의 바랍니다🙏"
+            );
             console.log("Error", error.message);
           }
           console.log(error.config);
         });
     } catch (e) {
       console.log(e);
-      window.location.replace("");
+      alert(
+        "에러가 발생했어요😥 페이지 새로고침 후 이용해주세요. 문제가 지속될 시 관리자에게 문의 바랍니다🙏"
+      );
     }
   };
 
