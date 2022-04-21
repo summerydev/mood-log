@@ -1,62 +1,152 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
-//import { useNavigate } from "react-router-dom"; //err
+import axios from "axios";
+import { Link } from "react-router-dom";
+import ReactLoading from "react-loading";
 
-export default function Upload() {
-  //const navigate = useNavigate();
-  const url: string = "http://2cdd-222-119-93-18.ngrok.io/upload_page";
-  const now = Date.now();
+const Upload = ({ match }: any) => {
+  //http://54.67.69.32:443/ -> 아마 https
+  //http://54.67.69.32:80/ -> http
+  //http://8f83-121-66-139-243.ngrok.io -> 서버님 노트북 로컬
+  //http://43bb-121-66-139-243.ngrok.io
+  const url: string = "http://43bb-121-66-139-243.ngrok.io ";
   const [file, setFile] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [aiData, setAiData] = useState();
+  const [isShown, setIsShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [imageSrc, setImageSrc] = useState("");
+
+  const date = Date.now();
+  const data = {
+    id: date,
+  };
 
   const onLoadFile = (e: any) => {
     const file = e.target.files[0];
-    //console.log(file);
+    const fileName = e.target.files[0].name;
     setFile(file);
-    console.log(file);
+    setFileName(fileName);
+    console.log(`file: ${file}, fileName: ${fileName}`);
+    setImageSrc(URL.createObjectURL(file));
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // const file = e.target.file.file;
-    console.log(file);
+    const formData = new FormData();
+    formData.append("images", file);
+    formData.append("fileName", fileName);
+    formData.append("data", JSON.stringify(data));
 
-    let formData = new FormData();
-    formData.append("files", file);
-
-    const dataSet = {
-      "id": now,
-    };
-    formData.append("data", JSON.stringify(dataSet));
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: formData,
-    });
-    //navigate(`/output`);
-    // submit 시 /output으로 넘어가야함, id: now가 url의 파라미터로 넘어가도록?
+    try {
+      setLoading(true);
+      axios
+        .post(url, formData) //
+        .then((res: any) => {
+          setLoading(false);
+          console.log(res);
+          setAiData(res.data);
+          setIsShow(true);
+        })
+        .catch(function (error: any) {
+          setLoading(false);
+          alert("에러가 발생했어요😥 페이지 새로고침 후 이용해주세요");
+          if (error.response) {
+            // 요청이 이루어졌으며 서버가 2xx의 범위를 벗어나는 상태 코드로 응답
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // 요청이 이루어 졌으나 응답을 받지 못함
+            console.log(error.request);
+          } else {
+            // 오류를 발생시킨 요청을 설정하는 중에 문제가 발생했습니다.
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
+    } catch (e) {
+      console.log(e);
+      window.location.replace("");
+    }
   };
 
-  return (
-    <div className="upload">
-      <h1>사진 업로드</h1>
-      <h3>
-        데일리룩 사진을 첨부하면, <br />
-        ai 하두알룩이 오늘의 무드를 분석해줘요!
-        <br />
-        전신사진일 수록 정확도가 높아진답니다.
-      </h3>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <input id="file" type="file" name="file" onChange={onLoadFile} />
+  if (loading) {
+    return (
+      <div>
         <div>
-          <button type="submit" className="button">
-            ai하두알룩에게 사진 보내기🤖
-          </button>
+          <h2>ai하두알룩이 분석하고 있어요!🤖</h2>
+          <div className="spinner">
+            <ReactLoading
+              type="spin"
+              color="fff"
+              height={"30%"}
+              width={"30%"}
+            />
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="upload" hidden={isShown}>
+        <h1>사진 업로드</h1>
+        <div className="contents">
+          <h3>
+            데일리룩 사진을 첨부하면, <br />
+            ai 하두알룩이 오늘의 무드를 분석해줘요!
+            <br />
+            전신사진일 수록 정확도가 높아진답니다.
+          </h3>
+
+          <form onSubmit={handleSubmit} encType="multipart/formdata">
+            <input
+              id="file"
+              type="file"
+              name="file"
+              required
+              onChange={onLoadFile}
+            />
+            <div>
+              {imageSrc && (
+                <img className="preview" src={imageSrc} alt="preview-img" />
+              )}
+            </div>
+            <div>
+              <button type="submit" className="button">
+                ai하두알룩에게 사진 보내기🤖
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div hidden={!isShown}>
+        <h1>결과 보러 가기🎈</h1>
+        <h3>
+          ai 하두알룩이 분석을 마쳤어요.
+          <br />
+          결과 페이지에서 데일리룩 분석을 확인해보러 가요!
+        </h3>
+        <Link
+          to={{
+            pathname: `/output/${data.id}`,
+            state: [
+              {
+                id: data.id,
+                data: aiData,
+              },
+            ],
+          }}
+          className="text-link"
+        >
+          <h2>
+            <div className="button">Let's Go!🚀</div>
+          </h2>
+        </Link>
+      </div>
+    </>
   );
-}
-//<Link to="/output" className="text-link"></Link>
+};
+
+export default Upload;
