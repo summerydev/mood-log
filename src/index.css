@@ -6,19 +6,18 @@
   font-style: normal;
 }
 
-:root {
-}
-
 .App {
   text-align: center;
   font-family: "Cafe24Ohsquareair";
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
-  margin: 20px;
+  margin: 15px;
 }
 
 body {
@@ -26,9 +25,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
+  align-content: center;
   background: linear-gradient(-45deg, #f8c2b2, #f9b1cd, #88d5f1, #abf9e7);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  margin: 15px;
 }
 
 .text-link {
@@ -37,16 +38,11 @@ body {
 }
 
 .card {
-  margin: 20px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 15px;
   background: #ffffff;
   box-shadow: 9px 9px 8px #eeecec;
-  max-width: 960px;
-  min-width: 280px;
-  min-height: 700px;
   flex-wrap: wrap;
-  font-size: 1.3rem;
   line-height: 160%;
   display: flex;
   flex-wrap: wrap;
@@ -95,9 +91,9 @@ body {
   height: 30px;
 }
 
-.preview{
-  max-width: 400px;
-  max-height: 400px;
+.preview {
+  max-width: 250px;
+  max-height: 250px;
 }
 
 .share-btn {
@@ -118,33 +114,104 @@ body {
   border: none;
 }
 
-.output-img {
-  width: 500px;
-  object-fit: cover;
+.button:hover {
+  background: #bccbf7;
 }
 
-.share-box span {
-  background-color: #000000;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
-
+.share-btn + span {
+  background-color: #b7c6f2;
   border-radius: 5px;
-
-  color: #ffffff;
   font-size: 12px;
-
   margin-bottom: 10px;
   top: 0;
-  padding: 7px 12px;
-  position: absolute;
+  padding: 3px 3px;
   width: fit-content;
-  min-width: 50px;
-  max-width: 300px;
   word-wrap: break-word;
-
   z-index: 9999;
 }
 
+.input {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input input[type="radio"] {
+  display: none;
+}
+
+.input input[type="radio"] + span:hover {
+  background-color: #bfccf6;
+}
+
+.input input[type="radio"] + span {
+  display: inline-block;
+  padding: 8px 8px;
+  border: 1px solid #dfdfdf;
+  background-color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.input input[type="radio"]:checked + span {
+  background-color: #8fa5e5;
+  color: #000000;
+}
+
+button {
+  text-align: center;
+  font-family: "Cafe24Ohsquareair";
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.1rem;
+}
+
+@media screen and(min-width: 320px) {
+  .card {
+    width: 280px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .card {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .card {
+    width: 360px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    font-size: 1.2rem;
+    width: 612px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .card {
+    font-size: 1.3rem;
+    width: 720px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .card {
+    font-size: 1.3rem;
+    width: 960px;
+  }
+}
+
+ 
 @keyframes rotate_image {
   100% {
     transform: rotate(360deg);
