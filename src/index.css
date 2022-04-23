@@ -119,6 +119,7 @@ body {
 }
 
 .share-btn + span {
+  position: absolute;
   background-color: #b7c6f2;
   border-radius: 5px;
   font-size: 12px;
@@ -126,8 +127,8 @@ body {
   top: 0;
   padding: 3px 3px;
   width: fit-content;
-  word-wrap: break-word;
   z-index: 9999;
+  word-wrap: unset;
 }
 
 .input {
@@ -211,7 +212,6 @@ button {
   }
 }
 
- 
 @keyframes rotate_image {
   100% {
     transform: rotate(360deg);
