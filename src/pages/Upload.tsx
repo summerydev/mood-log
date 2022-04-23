@@ -114,6 +114,7 @@ const Upload = ({ match }: any) => {
     }
   };
 
+  // 로딩중 구현
   if (loading) {
     return (
       <div>
@@ -136,6 +137,7 @@ const Upload = ({ match }: any) => {
     );
   }
 
+  // 분석 결과
   if (resData) {
     return (
       <div>
