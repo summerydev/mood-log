@@ -27,6 +27,7 @@ const Upload = ({ match }: any) => {
       mood5: "",
       mood6: "",
       mood7: "",
+      mood8: "",
     },
   ]);
 
@@ -74,13 +75,14 @@ const Upload = ({ match }: any) => {
           aiData = [
             {
               id: res.data.id,
-              mood1: res.data.mood[0]["무드1-클래식"],
-              mood2: res.data.mood[0]["무드2-페미닌"],
-              mood3: res.data.mood[0]["무드3-레트로"],
-              mood4: res.data.mood[0]["무드4-히피"],
-              mood5: res.data.mood[0]["무드5-스포티"],
-              mood6: res.data.mood[0]["무드6-섹시"],
-              mood7: res.data.mood[0]["무드7-톰보이"],
+              mood1: res.data.mood[0]["무드1-직장인"],
+              mood2: res.data.mood[0]["무드2-캐주얼"],
+              mood3: res.data.mood[0]["무드3-리조트"],
+              mood4: res.data.mood[0]["무드4-데이트"],
+              mood5: res.data.mood[0]["무드5-패턴"],
+              mood6: res.data.mood[0]["무드6-스포티"],
+              mood7: res.data.mood[0]["무드7-섹시"],
+              mood8: res.data.mood[0]["무드8-캠퍼스"],
             },
           ];
           setAiData([...aiData]);
@@ -114,7 +116,6 @@ const Upload = ({ match }: any) => {
     }
   };
 
-  // 로딩중 구현
   if (loading) {
     return (
       <div>
@@ -137,11 +138,10 @@ const Upload = ({ match }: any) => {
     );
   }
 
-  // 분석 결과
   if (resData) {
     return (
       <div>
-        <h1>🤖무드 분석 결과</h1>
+        <h1>🤖당신의 motd는 ..!</h1>
         {imageSrc && (
           <img className="preview" src={imageSrc} alt="preview-img" />
         )}
@@ -149,29 +149,26 @@ const Upload = ({ match }: any) => {
           {aiData &&
             aiData.map((item) => (
               <div key={item.id}>
-                <p>
-                  {item.mood1[1]}, {item.mood1[0]}%
-                </p>
-                <p>
-                  {item.mood2[1]}, {item.mood2[0]}%
-                </p>
-                <p>
-                  {item.mood3[1]}, {item.mood3[0]}%
-                </p>
-                <p>
-                  {item.mood4[1]}, {item.mood4[0]}%
-                </p>
-                <p>
-                  {item.mood5[1]}, {item.mood5[0]}%
-                </p>
-                <p>
-                  {item.mood6[1]}, {item.mood6[0]}%
-                </p>
-                <p>
-                  {item.mood7[1]}, {item.mood7[0]}%
-                </p>
+                {item.mood1[1]}, {item.mood1[0]}%
+                <br />
+                {item.mood2[1]}, {item.mood2[0]}%
+                <br />
+                {item.mood3[1]}, {item.mood3[0]}%
+                <br />
+                {item.mood4[1]}, {item.mood4[0]}%
+                <br />
+                {item.mood5[1]}, {item.mood5[0]}%
+                <br />
+                {item.mood6[1]}, {item.mood6[0]}%
+                <br />
+                {item.mood7[1]}, {item.mood7[0]}%
+                <br />
+                {item.mood8[1]}, {item.mood8[0]}%
               </div>
             ))}
+            <p>
+              #motd #mood #ootd #갬성 #데일리룩
+            </p>
         </div>
 
         <Social />
@@ -203,7 +200,7 @@ const Upload = ({ match }: any) => {
                     type="radio"
                     name="gender"
                     id="female"
-                    value="female"
+                    value="여자"
                     onChange={onInputChange}
                     required
                   />
@@ -214,7 +211,7 @@ const Upload = ({ match }: any) => {
                     type="radio"
                     id="male"
                     name="gender"
-                    value="male"
+                    value="남자"
                     onChange={onInputChange}
                   />
                   <span>남성</span>
@@ -316,30 +313,7 @@ const Upload = ({ match }: any) => {
           </form>
         </div>
       </div>
-      <div hidden={!isShown}>
-        <h1>결과 보러 가기🎈</h1>
-        <h3>
-          ai 하두알룩이 분석을 마쳤어요.
-          <br />
-          결과 페이지에서 데일리룩 분석을 확인해보러 가요!
-        </h3>
-        <Link
-          to={{
-            pathname: `/output/${aiData[0].id}`,
-            state: [
-              {
-                id: aiData[0].id,
-                data: aiData[0],
-              },
-            ],
-          }}
-          className="text-link"
-        >
-          <h2>
-            <div className="button">Let's Go!🚀</div>
-          </h2>
-        </Link>
-      </div>
+      {/* <div hidden={!isShown}></div> */}
     </>
   );
 };
