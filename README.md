@@ -3,7 +3,9 @@
 ai가 알려주는 데일리룩 무드. 매일 달라지는 아웃핏에 따른 무드를 분석할 수 있는 웹사이트를 구현.  
 mbti, 심리테스트 등 공유 놀이 문화를 반영, 1회성 테스트 특성을 개선한 데일리 무드 분석 서비스.    
 
-1. 배포 페이지 : https://mood-ootd.netlify.app/ (AWS 문제로 작동하지 않을 수 있음)
+1. 배포 페이지(AWS 문제로 결과 통신 오류가 발생할 수 있음)
+   - https://mood-ootd.netlify.app/
+   - http://www.motd.r-e.kr/
 2. 설치 및 실행
    - git clone https://github.com/summerydev/mood-log/
    - npm install
